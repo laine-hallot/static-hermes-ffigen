@@ -1,0 +1,3 @@
+[submodule "vendor/hermes-src"]
+	path = vendor/hermes-src
+	url = git@github.com:facebook/hermes.git
