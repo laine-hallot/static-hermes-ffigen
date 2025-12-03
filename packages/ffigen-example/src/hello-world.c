@@ -3,6 +3,6 @@
 #include "hello-world.h"
 
 void print_hello_world() {
-    printf("hello world");
+    printf("hello world\n");
     exit( 0 );
 }

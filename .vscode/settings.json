@@ -1,0 +1,16 @@
+{
+  "files.associations": {
+    "flake.lock": "json",
+    "*.bb": "edge",
+    "*.unit": "systemd-conf",
+    "*.service": "systemd-unit-file",
+    "deque": "cpp",
+    "vector": "cpp",
+    "climits": "cpp",
+    "cmath": "cpp",
+    "algorithm": "cpp",
+    "unordered_map": "cpp",
+    "*.inc": "cpp"
+  },
+  "C_Cpp.default.compilerPath": "/usr/bin/clang++-18"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "cli-tools",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "bin": {
+    "hermes": "./bin/hermes.ts",
+    "shermes": "./bin/shermes.ts",
+    "ffigen": "./bin/ffigen.ts"
+  },
+  "scripts": {
+    "build": "#no-op"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
+  }
+}
