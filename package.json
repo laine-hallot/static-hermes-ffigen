@@ -25,6 +25,7 @@
   "workspaces": [
     "packages/ffigen-example",
     "packages/static-hermes-program",
-    "packages/cli-tools"
+    "packages/cli-tools",
+    "packages/js-wayland"
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "name": "js-wayland",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "build": "./build.sh",
+    "ffigen": "./ffigen.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
