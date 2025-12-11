@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/unist": "^3.0.3",
+    "@types/xast": "^2.0.4",
+    "typescript": "^5.9.3",
+    "xast-util-from-xml": "^4.0.0",
+    "xast-util-to-xml": "^4.0.0"
+  },
   "scripts": {
     "build": "./build.sh",
-    "ffigen": "./ffigen.sh"
+    "ffigen": "./ffigen.sh",
+    "fix-xml": "cat ./bindgen-out/js_externs.xml | node ./fix-castxml-out.ts"
   },
   "keywords": [],
   "author": "",

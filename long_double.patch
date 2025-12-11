@@ -1,0 +1,66 @@
+diff --git a/include/hermes/AST/NativeTypes.def b/include/hermes/AST/NativeTypes.def
+index c9cb9bff5..714322877 100644
+--- a/include/hermes/AST/NativeTypes.def
++++ b/include/hermes/AST/NativeTypes.def
+@@ -52,6 +52,7 @@ NATIVE_CTYPE(size_t, "size_t")
+ NATIVE_CTYPE(ssize_t, "ssize_t")
+ NATIVE_CTYPE(float, "float")
+ NATIVE_CTYPE(double, "double")
++NATIVE_CTYPE(longdouble, "long double")
+ 
+ NATIVE_HV(hermes_value, "SHLegacyValue")
+ NATIVE_VOID(void, "void")
+diff --git a/lib/AST/NativeContext.cpp b/lib/AST/NativeContext.cpp
+index ee6b0c966..3527362c8 100644
+--- a/lib/AST/NativeContext.cpp
++++ b/lib/AST/NativeContext.cpp
+@@ -242,6 +242,8 @@ static constexpr MachineDesc s_LP64 = {
+             MachineType::f32,
+             // double
+             MachineType::f64,
++            // longdouble
++            MachineType::f64,
+             // SHLegacyValue
+             MachineType::u64,
+             // void (just use anything)
+@@ -340,6 +342,8 @@ static constexpr MachineDesc s_ILP32 = {
+             MachineType::f32,
+             // double
+             MachineType::f64,
++            // longdouble
++            MachineType::f64,
+             // SHLegacyValue
+             MachineType::u64,
+             // void (just use anything)
+diff --git a/tools/ffigen/ffigen.py b/tools/ffigen/ffigen.py
+index a326bd57c..057d583de 100755
+--- a/tools/ffigen/ffigen.py
++++ b/tools/ffigen/ffigen.py
+@@ -49,6 +49,7 @@ simple_type_mapping = {
+     "unsigned int": "c_uint",
+     "long int": "c_long",
+     "long unsigned int": "c_ulong",
++    "long long": "c_longlong",
+     "long long int": "c_longlong",
+     "long long unsigned int": "c_ulonglong",
+     "bool": "c_bool",
+@@ -56,6 +57,7 @@ simple_type_mapping = {
+     "float": "c_float",
+     "void": "void",
+     "double": "c_double",
++    "long double": "c_longdouble",
+ }
+ 
+ # Mapping from the ID for a type to its XML element.
+@@ -67,7 +69,10 @@ def to_sh_name(id):
+     elem = id_to_element[id]
+ 
+     if elem.tag == "FundamentalType":
+-        return simple_type_mapping.get(elem.get("name"))
++        sh_type = simple_type_mapping.get(elem.get("name"))
++        if sh_type == None:
++            raise ValueError('No sh type maps to c type: ' + elem.get("name"))
++        return sh_type
+     if elem.tag == "Enumeration":
+         return "c_int"
+     if elem.tag == "PointerType":

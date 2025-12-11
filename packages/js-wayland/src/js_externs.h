@@ -12,6 +12,7 @@
 #ifndef JS_EXTERNS_H_   
 #define JS_EXTERNS_H_
 
-int connect_to_env(void);
+int connect_to_env();
+int draw_window();
 
 #endif // JS_EXTERNS_H_

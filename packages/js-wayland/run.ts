@@ -1,1 +1,2 @@
-_connect_to_env();
+console.log("meow");
+_draw_window();

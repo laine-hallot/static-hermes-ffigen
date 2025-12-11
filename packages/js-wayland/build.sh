@@ -1,3 +1,5 @@
+set -e
+
 mkdir -p ./dist/c
 clang -c -o dist/c/js_externs_cwrap.o bindgen-out/js_externs_cwrap.c -fPIC
 clang -c -o dist/c/js_externs.o src/js_externs.c -fPIC
@@ -14,7 +16,8 @@ npx shermes run.ts bindgen-out/js_externs.js src/helper.js -typed  \
 -Xes6-block-scoping \
 -o run.o \
 -Ldist/c \
--ljswayland
+-ljswayland \
+-lwayland-client
 
 
 #rm dist/c/libjswayland.o dist/c/js_externs_cwrap.o dist/c/hello-world.o dist/c/libjswayland-temp.a
