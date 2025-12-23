@@ -1,2 +1,2 @@
 console.log("meow");
-_draw_window();
+globalThis.JsWayland._draw_window();

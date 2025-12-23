@@ -18,6 +18,9 @@
           tzdata
           readline
           zip
+          wayland
+          wayland-scanner
+          wayland-protocols
         ];
       };
     });

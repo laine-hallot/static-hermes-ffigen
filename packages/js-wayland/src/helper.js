@@ -1,3 +1,3 @@
 globalThis.JsWayland = {
-  _connect_to_env: () => _connect_to_env(),
+  _draw_window: () => _draw_window(),
 };

@@ -9,7 +9,7 @@
 #include <limits.h>
 #include <stdbool.h>
 
-void imaxdiv_cwrap(struct * a0, long int a1, long int a2){
+/* void imaxdiv_cwrap(struct * a0, long int a1, long int a2){
   *a0 = imaxdiv(a1, a2);
 }
 struct _IO_FILE* fopencookie_cwrap(void* a0, char* a1, struct _IO_cookie_io_functions_t* a2){
@@ -24,3 +24,4 @@ void ldiv_cwrap(struct * a0, long int a1, long int a2){
 void lldiv_cwrap(struct * a0, long long int a1, long long int a2){
   *a0 = lldiv(a1, a2);
 }
+ */

@@ -1,8 +1,16 @@
 diff --git a/include/hermes/AST/NativeTypes.def b/include/hermes/AST/NativeTypes.def
-index c9cb9bff5..714322877 100644
+index c9cb9bff5..7cf725272 100644
 --- a/include/hermes/AST/NativeTypes.def
 +++ b/include/hermes/AST/NativeTypes.def
-@@ -52,6 +52,7 @@ NATIVE_CTYPE(size_t, "size_t")
+@@ -31,6 +31,7 @@ NATIVE_TYPE(i64, "int64_t")
+ NATIVE_TYPE(u64, "uint64_t")
+ NATIVE_TYPE(f32, "float")
+ NATIVE_TYPE(f64, "double")
++NATIVE_TYPE(f128, "longdouble")
+ NATIVE_PTR(ptr, "void *")
+ 
+ NATIVE_CTYPE(bool, "bool")
+@@ -52,6 +53,7 @@ NATIVE_CTYPE(size_t, "size_t")
  NATIVE_CTYPE(ssize_t, "ssize_t")
  NATIVE_CTYPE(float, "float")
  NATIVE_CTYPE(double, "double")
@@ -11,7 +19,7 @@ index c9cb9bff5..714322877 100644
  NATIVE_HV(hermes_value, "SHLegacyValue")
  NATIVE_VOID(void, "void")
 diff --git a/lib/AST/NativeContext.cpp b/lib/AST/NativeContext.cpp
-index ee6b0c966..3527362c8 100644
+index ee6b0c966..cdf11c82f 100644
 --- a/lib/AST/NativeContext.cpp
 +++ b/lib/AST/NativeContext.cpp
 @@ -242,6 +242,8 @@ static constexpr MachineDesc s_LP64 = {
@@ -19,7 +27,7 @@ index ee6b0c966..3527362c8 100644
              // double
              MachineType::f64,
 +            // longdouble
-+            MachineType::f64,
++            MachineType::f128,
              // SHLegacyValue
              MachineType::u64,
              // void (just use anything)
@@ -28,7 +36,7 @@ index ee6b0c966..3527362c8 100644
              // double
              MachineType::f64,
 +            // longdouble
-+            MachineType::f64,
++            MachineType::f128,
              // SHLegacyValue
              MachineType::u64,
              // void (just use anything)
